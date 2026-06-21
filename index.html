@@ -885,19 +885,9 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
 
 <div>
   <div class="fc">
-    <div class="fc-ttl"><span>Building A <span style="font-size:9px;padding:1px 6px;border-radius:20px;background:rgba(48,46,129,.1);color:var(--navy);font-weight:800;">FL5–27</span></span><span id="ba-pct" style="font-size:16px;font-weight:900;color:var(--navy);">0%</span></div>
+    <div class="fc-ttl"><span>Floor Progress <span style="font-size:9px;padding:1px 6px;border-radius:20px;background:rgba(48,46,129,.1);color:var(--navy);font-weight:800;">Ground–32</span></span><span id="bm-pct" style="font-size:16px;font-weight:900;color:var(--navy);">0%</span></div>
     <div style="font-size:9px;color:var(--t3);display:grid;grid-template-columns:68px 1fr 1fr 50px;gap:7px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;"><span>Floor</span><span>Status</span><span>Date</span><span style="text-align:center;">%</span></div>
-    <div id="ba-fl"></div>
-  </div>
-  <div class="fc">
-    <div class="fc-ttl"><span>Building B <span style="font-size:9px;padding:1px 6px;border-radius:20px;background:rgba(217,119,6,.1);color:var(--amber);font-weight:800;">FL5–31</span></span><span id="bb-pct" style="font-size:16px;font-weight:900;color:var(--amber);">0%</span></div>
-    <div style="font-size:9px;color:var(--t3);display:grid;grid-template-columns:68px 1fr 1fr 50px;gap:7px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;"><span>Floor</span><span>Status</span><span>Date</span><span style="text-align:center;">%</span></div>
-    <div id="bb-fl"></div>
-  </div>
-  <div class="fc">
-    <div class="fc-ttl"><span>Building C <span style="font-size:9px;padding:1px 6px;border-radius:20px;background:rgba(22,163,74,.1);color:var(--green);font-weight:800;">FL5–31</span></span><span id="bc-pct" style="font-size:16px;font-weight:900;color:var(--green);">0%</span></div>
-    <div style="font-size:9px;color:var(--t3);display:grid;grid-template-columns:68px 1fr 1fr 50px;gap:7px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;"><span>Floor</span><span>Status</span><span>Date</span><span style="text-align:center;">%</span></div>
-    <div id="bc-fl"></div>
+    <div id="bm-fl"></div>
   </div>
   <button class="gen-btn" id="gen-btn" onclick="generateAndSave()">
     ✅ Generate Report &amp; Save to Database
@@ -958,13 +948,13 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
     </div>
   </div>
   <div class="krow">
-    <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-o" cx="21" cy="21" r="17" stroke="#302e81" style="stroke-dashoffset:106;"/></svg><div class="rlbl" style="color:#302e81;" id="ri-o-l">0%</div></div><div><div class="ktag">Overall</div><div class="kval" id="kv-o" style="color:#302e81;">0%</div><div class="ksub" id="ks-o">0 / 77 FL</div></div></div>
-    <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-b" cx="21" cy="21" r="17" stroke="#D97706" style="stroke-dashoffset:106;"/></svg><div class="rlbl" style="color:#D97706;" id="ri-b-l">A0%</div></div><div><div class="ktag">Buildings</div><div class="kval" id="kv-b" style="color:#D97706;">A:0%</div><div class="ksub" id="ks-b">B:0% · C:0%</div></div></div>
+    <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-o" cx="21" cy="21" r="17" stroke="#302e81" style="stroke-dashoffset:106;"/></svg><div class="rlbl" style="color:#302e81;" id="ri-o-l">0%</div></div><div><div class="ktag">Overall</div><div class="kval" id="kv-o" style="color:#302e81;">0%</div><div class="ksub" id="ks-o">0 / 33 FL</div></div></div>
+    <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-b" cx="21" cy="21" r="17" stroke="#D97706" style="stroke-dashoffset:106;"/></svg><div class="rlbl" style="color:#D97706;" id="ri-b-l">0/33</div></div><div><div class="ktag">Floors Done</div><div class="kval" id="kv-b" style="color:#D97706;">0 / 33</div><div class="ksub" id="ks-b">Ground–32</div></div></div>
     <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" cx="21" cy="21" r="17" stroke="#16A34A" style="stroke-dashoffset:0;"/></svg><div class="rlbl" style="color:#16A34A;font-size:11px;">✓</div></div><div><div class="ktag">Safety LTI</div><div class="kval" id="kv-s" style="color:#16A34A;">0</div><div class="ksub" id="ks-s">0 MH Accum</div></div></div>
     <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-p" cx="21" cy="21" r="17" stroke="#ed1b24" style="stroke-dashoffset:95;"/></svg><div class="rlbl" style="color:#ed1b24;font-size:8px;">10%</div></div><div><div class="ktag">Next Payment</div><div class="kval" style="color:#ed1b24;">฿1.95M</div><div class="ksub">@ 40% · Jun 2026</div></div></div>
   </div>
   <div class="rbody">
-    <div class="cL"><div class="sh">All 77 Floors — Building Progress</div><div id="r-bldgs"></div><div class="chips"><div class="chip"><span class="chip-v" id="rc-done" style="color:var(--green);">0</span><div class="chip-l">FL Done</div></div><div class="chip"><span class="chip-v" id="rc-wip" style="color:var(--amber);">0</span><div class="chip-l">FL Active</div></div><div class="chip"><span class="chip-v" id="rc-os" style="color:var(--navy);">0</span><div class="chip-l">On-Site</div></div><div class="chip"><span class="chip-v" id="rc-mha" style="color:var(--navy);">0</span><div class="chip-l">MH Accum</div></div><div class="chip"><span class="chip-v" id="rc-lti" style="color:var(--green);">0</span><div class="chip-l">LTI</div></div></div></div>
+    <div class="cL"><div class="sh">All 33 Floors · Ground–32</div><div id="r-bldgs"></div><div class="chips"><div class="chip"><span class="chip-v" id="rc-done" style="color:var(--green);">0</span><div class="chip-l">FL Done</div></div><div class="chip"><span class="chip-v" id="rc-wip" style="color:var(--amber);">0</span><div class="chip-l">FL Active</div></div><div class="chip"><span class="chip-v" id="rc-os" style="color:var(--navy);">0</span><div class="chip-l">On-Site</div></div><div class="chip"><span class="chip-v" id="rc-mha" style="color:var(--navy);">0</span><div class="chip-l">MH Accum</div></div><div class="chip"><span class="chip-v" id="rc-lti" style="color:var(--green);">0</span><div class="chip-l">LTI</div></div></div></div>
     <div class="cR">
       <div class="sh">S-Curve — Planned vs Actual</div>
       <div class="cbox" style="width:100%;overflow:hidden;display:block"><svg viewBox="0 0 400 110" xmlns="http://www.w3.org/2000/svg" width="100%" height="110" preserveAspectRatio="none" style="display:block;width:100%;-webkit-print-color-adjust:exact;print-color-adjust:exact;">
@@ -1057,8 +1047,8 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
   </div>
   <div class="ltbwrap">
     <table class="ltb">
-      <thead><tr><th>Date</th><th>Day</th><th>Weather</th><th>Overall%</th><th>A%</th><th>B%</th><th>C%</th><th>FL Done</th><th>MH Accum</th><th>LTI</th><th>Saved By</th><th>Actions</th></tr></thead>
-      <tbody id="lbody"><tr><td colspan="11" style="padding:20px;text-align:center;color:var(--t3);">Loading records...</td></tr></tbody>
+      <thead><tr><th>Date</th><th>Day</th><th>Weather</th><th>Overall%</th><th>FL Done</th><th>MH Accum</th><th>LTI</th><th>Saved By</th><th>Actions</th></tr></thead>
+      <tbody id="lbody"><tr><td colspan="9" style="padding:20px;text-align:center;color:var(--t3);">Loading records...</td></tr></tbody>
     </table>
   </div>
 </div>
@@ -1078,7 +1068,7 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
   <div id="client-kpis" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;"></div>
   <div id="cl-milestone" style="margin-bottom:12px;"></div>
   <div class="cl-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
-    <div class="fc"><div class="sh">Building Progress</div><div id="cl-bldgs"></div></div>
+    <div class="fc"><div class="sh">Floor Progress</div><div id="cl-bldgs"></div></div>
     <div class="fc"><div class="sh">S-Curve — Planned vs Actual</div><div style="height:200px;"><canvas id="cl-sc"></canvas></div></div>
   </div>
   <div class="fc" style="margin-bottom:12px;"><div class="sh">Latest Site Photos</div><div id="cl-photos"></div></div>
@@ -1181,13 +1171,14 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 /* ═══════════════════════════════════════════════════
    CONSTANTS
 ═══════════════════════════════════════════════════ */
+// Chapter One Shine Bang Pho — single structure.
+// floor_no 0 = Ground (G); 1–32 = upper floors. 33 in-scope floors total.
 const BLDG = {
-  A:{floors:23,startFloor:5,endFloor:27,color:'a',label:'Building A'},
-  B:{floors:27,startFloor:5,endFloor:31,color:'b',label:'Building B'},
-  C:{floors:27,startFloor:5,endFloor:31,color:'c',label:'Building C'},
+  M:{floors:33,startFloor:0,endFloor:32,color:'a',label:'Chapter One Shine Bang Pho'},
 };
-// FL 1-4 = Car Parking (excluded from scope) — Confirmed 15 Apr 2026
-const TF = 77;
+const TF = 33;
+// Display label for a floor number (0 → "G")
+function flLabel(n){return Number(n)===0?'G':String(n);}
 const BUCKET = 'ch1-sbp-photos';
 let PROJECT_ID = null;
 
@@ -1501,7 +1492,7 @@ async function loadFloorState(){
   }catch(err){
     console.error('loadFloorState failed:',err);
     if(currentRole!=='client'){
-      ['A','B','C'].forEach(b=>{
+      Object.keys(BLDG).forEach(b=>{
         renderState(`b${b.toLowerCase()}-fl`,{kind:'error',msg:'โหลดข้อมูลชั้นไม่สำเร็จ',sub:thaiErr(err),retryFn:loadFloorState});
       });
     }
@@ -1513,9 +1504,10 @@ async function loadFloorState(){
    FLOOR FORMS
 ═══════════════════════════════════════════════════ */
 function buildFloorForms(){
-  ['A','B','C'].forEach(b=>{
+  Object.keys(BLDG).forEach(b=>{
     const cfg=BLDG[b];
     const el=$(`b${b.toLowerCase()}-fl`);
+    if(!el)return;
     el.innerHTML='';
     for(let fl=cfg.endFloor;fl>=cfg.startFloor;fl--){
       const f=floorState[b][fl]||{pct:0,date:'',changed:false};
@@ -1525,7 +1517,7 @@ function buildFloorForms(){
       const pctColor=f.pct===100?'var(--green)':f.pct>0?'var(--amber)':'var(--t3)';
       const status=f.pct===100?'✅ Done':f.pct>0?`🔄 ${f.pct}%`:'Pending';
       row.innerHTML=`
-        <div style="font-size:var(--fss);font-weight:700;color:var(--t2);">FL ${fl}</div>
+        <div style="font-size:var(--fss);font-weight:700;color:var(--t2);">${flLabel(fl)==='G'?'Ground':'FL '+flLabel(fl)}</div>
         <div onclick="openPicker('${b}',${fl})" style="cursor:pointer;font-size:var(--fss);color:${pctColor};font-weight:700;">${status}</div>
         <div style="font-size:9px;color:var(--t3);">${f.date||'—'}</div>
         <div style="font-size:var(--fss);font-weight:900;text-align:center;color:${pctColor};">${f.pct}%</div>`;
@@ -1552,7 +1544,7 @@ function openPicker(b,fl){
   pickerBldg=b;pickerFloor=fl;
   const f=floorState[b][fl]||{pct:0,date:''};
   pickerPct=f.pct;
-  $('pk-t').textContent=`Building ${b} — Floor ${fl}`;
+  $('pk-t').textContent=flLabel(fl)==='G'?'Ground Floor':`Floor ${flLabel(fl)}`;
   $('pk-date').value=f.date||$('f-date').value;
   updatePickerBtns(f.pct);
   $('picker').classList.add('open');
@@ -1569,7 +1561,7 @@ function savePicker(){
   floorState[pickerBldg][pickerFloor]={pct:pickerPct,date:$('pk-date').value,changed:true};
   buildFloorForms();
   closePicker();
-  toast(`Bldg ${pickerBldg} FL${pickerFloor} → ${pickerPct}%`);
+  toast(`${flLabel(pickerFloor)==='G'?'Ground':'FL '+flLabel(pickerFloor)} → ${pickerPct}%`);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -1640,7 +1632,7 @@ async function generateAndSave(){
     const date=gv('f-date');
     await refreshBaseline(); // verify mh_cumulative against latest DB chain before writing
     const overallPct=calcOverall();
-    const aData=calcBldg('A'),bData=calcBldg('B'),cData=calcBldg('C');
+    const mData=calcBldg('M');
 
     // 1. Upsert daily_report
     const report={
@@ -1657,9 +1649,9 @@ async function generateAndSave(){
       lti_count:parseInt(gv('f-lti'))||0,
       near_miss_count:parseInt(gv('f-nm'))||0,
       overall_pct:parseFloat(overallPct.toFixed(2)),
-      bldg_a_pct:parseFloat(aData.pct.toFixed(2)),
-      bldg_b_pct:parseFloat(bData.pct.toFixed(2)),
-      bldg_c_pct:parseFloat(cData.pct.toFixed(2)),
+      bldg_a_pct:parseFloat(mData.pct.toFixed(2)),
+      bldg_b_pct:0,
+      bldg_c_pct:0,
       floors_complete:countDone(),
       floors_active:countWip(),
       concern_1_title:gv('c1'),concern_1_action:gv('a1'),
@@ -2000,7 +1992,7 @@ function buildReport(){
   const mhA=parseInt(gv('f-mha'))||0;
   const direct=parseInt(gv('f-direct'))||0,indirect=parseInt(gv('f-indirect'))||0;
   const lti=parseInt(gv('f-lti'))||0;
-  const op=calcOverall(),aD=calcBldg('A'),bD=calcBldg('B'),cD=calcBldg('C');
+  const op=calcOverall(),mD=calcBldg('M');
   const done=countDone(),wip=countWip();
   const ds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const dobj=new Date(date+'T00:00:00');
@@ -2034,19 +2026,19 @@ function buildReport(){
 
   setText('kv-o',op.toFixed(1)+'%');setText('ks-o',`${done} / ${TF} FL done`);
   $('ri-o').style.strokeDashoffset=106*(1-op/100);setText('ri-o-l',Math.round(op)+'%');
-  setText('kv-b',`A:${aD.pct.toFixed(1)}%`);setText('ks-b',`B:${bD.pct.toFixed(1)}% · C:${cD.pct.toFixed(1)}%`);
-  $('ri-b').style.strokeDashoffset=106*(1-aD.pct/100);setText('ri-b-l',`A${Math.round(aD.pct)}%`);
+  setText('kv-b',`${done} / ${TF}`);setText('ks-b','Floors complete');
+  $('ri-b').style.strokeDashoffset=106*(1-(TF?done/TF:0));setText('ri-b-l',`${done}/${TF}`);
   setText('kv-s',lti.toString());setText('ks-s',`${mhA} Accum. MH`);
   setText('rc-done',done);setText('rc-wip',wip);setText('rc-os',direct+indirect);setText('rc-mha',mhA);setText('rc-lti',lti);
 
   $('r-bldgs').innerHTML=Object.entries(BLDG).map(([b,cfg])=>{
     const{pct,done:dn,wip:wp}=calcBldg(b);
-    const cls=b.toLowerCase();
+    const cls=cfg.color;
     const pills=[];
     for(let fl=cfg.endFloor;fl>=cfg.startFloor;fl--){
       const f=floorState[b][fl]||{pct:0};
       if(!f.pct) continue;
-      pills.push(`<span class="fm ${f.pct===100?'done':'wip'}">F${fl}·${f.pct}%</span>`);
+      pills.push(`<span class="fm ${f.pct===100?'done':'wip'}">${flLabel(fl)}·${f.pct}%</span>`);
     }
     const rem=cfg.floors-dn-wp;
     if(!pills.length)pills.push('<span class="fm todo">Not started</span>');
@@ -2492,7 +2484,7 @@ async function loadClientDashboard(){
   // KPIs
   const kpiData=[
     {label:'Overall Progress',val:rpt.overall_pct.toFixed(1)+'%',color:'#302e81'},
-    {label:'Building A',val:rpt.bldg_a_pct.toFixed(1)+'%',color:'#302e81'},
+    {label:'Floors Active',val:(rpt.floors_active||0)+' / '+TF,color:'#D97706'},
     {label:'Safety LTI',val:rpt.lti_count,color:'#16A34A'},
     {label:'Floors Complete',val:rpt.floors_complete+' / '+TF,color:'#16A34A'},
   ];
@@ -2505,7 +2497,7 @@ async function loadClientDashboard(){
   // Buildings
   $('cl-bldgs').innerHTML=Object.entries(BLDG).map(([b,cfg])=>{
     const{pct,done}=calcBldg(b);
-    const cls=b.toLowerCase();
+    const cls=cfg.color;
     return`<div class="rbblk"><div class="rbhdr ${cls}"><div style="font-size:var(--fss);font-weight:800;">${cfg.label}</div><div style="font-size:15px;font-weight:900;${cls==='a'?'color:var(--navy)':cls==='b'?'color:var(--amber)':'color:var(--green)'};">${pct.toFixed(1)}%</div></div><div class="rbtrack"><div class="rbfill ${cls}" style="width:${Math.min(100,pct).toFixed(1)}%;"></div></div><div style="padding:5px 9px;font-size:9px;color:var(--t3);">${done} floors complete of ${cfg.floors}</div></div>`;
   }).join('');
 
@@ -2991,7 +2983,7 @@ async function loadLog(){
     console.error('loadLog failed:',err);
     logData=[];
     const lb=$('lbody');
-    if(lb) lb.innerHTML=`<tr><td colspan="12" style="padding:0;">
+    if(lb) lb.innerHTML=`<tr><td colspan="9" style="padding:0;">
       <div class="estate err"><div class="estate-icon">⚠️</div>
       <div class="estate-msg">โหลดประวัติรายงานไม่สำเร็จ</div>
       <div class="estate-sub">${thaiErr(err)}</div>
@@ -3006,13 +2998,12 @@ function renderLog(){
   setText('lc',`${log.length} record${log.length!==1?'s':''}`);
   setText('ls-d',log.length);
   if(log.length){setText('ls-p',log[0].overall_pct.toFixed(1)+'%');setText('ls-f',log[0].floors_complete||0);setText('ls-i',log.reduce((s,e)=>s+(e.lti_count||0),0));}
-  if(!log.length){$('lbody').innerHTML='<tr><td colspan="12" style="padding:0;"><div class="estate"><div class="estate-icon">📋</div><div class="estate-msg">ยังไม่มีรายงานในระบบ</div><div class="estate-sub">สร้างรายงานแรกได้ที่แท็บ Update</div></div></td></tr>';return;}
+  if(!log.length){$('lbody').innerHTML='<tr><td colspan="9" style="padding:0;"><div class="estate"><div class="estate-icon">📋</div><div class="estate-msg">ยังไม่มีรายงานในระบบ</div><div class="estate-sub">สร้างรายงานแรกได้ที่แท็บ Update</div></div></td></tr>';return;}
   const pc=p=>p>=70?'p-ok':p>=10?'p-wip':'p-lo';
   $('lbody').innerHTML=log.map((e,i)=>`<tr>
     <td style="font-weight:700;">${fmtDate(e.report_date)}</td>
     <td>Day ${e.day_no}</td><td>${e.weather||'—'}</td>
     <td><span class="pill ${pc(e.overall_pct)}">${e.overall_pct.toFixed(1)}%</span></td>
-    <td>${e.bldg_a_pct.toFixed(1)}%</td><td>${e.bldg_b_pct.toFixed(1)}%</td><td>${e.bldg_c_pct.toFixed(1)}%</td>
     <td style="color:var(--green);font-weight:700;">${e.floors_complete||0}</td>
     <td>${e.mh_cumulative||0}</td>
     <td style="color:${(e.lti_count||0)===0?'var(--green)':'var(--red)'};">${e.lti_count||0}</td>
@@ -3160,9 +3151,9 @@ async function deleteReport(reportId){
 
 function exportCSV(){
   if(!logData.length){toastErr('⚠️ ยังไม่มีข้อมูลรายงาน');return;}
-  const hdr=['Date','Day','Weather','Temp','Overall%','A%','B%','C%','FL_Done','FL_Active','MH_Accum','LTI','Saved_At'];
-  const rows=logData.map(e=>[e.report_date,e.day_no,e.weather,e.temp_celsius,e.overall_pct,e.bldg_a_pct,e.bldg_b_pct,e.bldg_c_pct,e.floors_complete||0,e.floors_active||0,e.mh_cumulative||0,e.lti_count||0,e.created_at]);
-  dl([hdr,...rows].map(r=>r.join(',')).join('\n'),`Chapter-One_Progress-Ledger_${new Date().toISOString().slice(0,10)}.csv`);
+  const hdr=['Date','Day','Weather','Temp','Overall%','FL_Done','FL_Active','MH_Accum','LTI','Saved_At'];
+  const rows=logData.map(e=>[e.report_date,e.day_no,e.weather,e.temp_celsius,e.overall_pct,e.floors_complete||0,e.floors_active||0,e.mh_cumulative||0,e.lti_count||0,e.created_at]);
+  dl([hdr,...rows].map(r=>r.join(',')).join('\n'),`CH1-SBP_Progress-Ledger_${new Date().toISOString().slice(0,10)}.csv`);
   toastOK(`✅ ส่งออก CSV สำเร็จ — ${logData.length} รายการ`);
 }
 
@@ -3181,7 +3172,7 @@ function showLoading(on,msg='Connecting...'){
 
 /* Skeleton helpers — render placeholder UI while async Supabase reads run */
 function skelFloors(){
-  ['A','B','C'].forEach(b=>{
+  Object.keys(BLDG).forEach(b=>{
     const cfg=BLDG[b];const el=$(`b${b.toLowerCase()}-fl`);if(!el)return;
     const n=cfg.endFloor-cfg.startFloor+1;
     let h='';
@@ -3204,7 +3195,7 @@ function skelLog(n=4){
   let h='';
   for(let r=0;r<n;r++){
     h+='<tr>';
-    for(let c=0;c<12;c++) h+=`<td><span class="skel skel-line" style="width:${50+Math.floor(Math.random()*40)}%;"></span></td>`;
+    for(let c=0;c<9;c++) h+=`<td><span class="skel skel-line" style="width:${50+Math.floor(Math.random()*40)}%;"></span></td>`;
     h+='</tr>';
   }
   lb.innerHTML=h;
@@ -3213,7 +3204,7 @@ function skelClient(){
   const k=$('client-kpis');
   if(k){let h='';for(let i=0;i<4;i++)h+=`<div class="skel-kpi"><span class="skel skel-line" style="width:60%;"></span><span class="skel skel-line" style="width:40%;height:18px;"></span></div>`;k.innerHTML=h;}
   const cb=$('cl-bldgs');
-  if(cb){let h='';for(let i=0;i<3;i++)h+=`<div class="rbblk" style="margin-bottom:8px;"><div style="padding:8px 10px;"><span class="skel skel-line" style="width:60%;height:14px;"></span></div><div class="rbtrack"><div class="skel" style="width:100%;height:100%;"></div></div><div style="padding:5px 9px;"><span class="skel skel-line" style="width:40%;"></span></div></div>`;cb.innerHTML=h;}
+  if(cb){let h='';for(let i=0;i<1;i++)h+=`<div class="rbblk" style="margin-bottom:8px;"><div style="padding:8px 10px;"><span class="skel skel-line" style="width:60%;height:14px;"></span></div><div class="rbtrack"><div class="skel" style="width:100%;height:100%;"></div></div><div style="padding:5px 9px;"><span class="skel skel-line" style="width:40%;"></span></div></div>`;cb.innerHTML=h;}
   const cp=$('cl-photos');
   if(cp){let h='<div class="phgrid">';for(let i=0;i<6;i++)h+='<div class="skel-photo"></div>';h+='</div>';cp.innerHTML=h;}
 }
