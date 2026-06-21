@@ -712,7 +712,7 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
     print-color-adjust: exact !important;
     color-adjust: exact !important;
   }
-  .ctrl,.topbar,.tabbar,#form-pane,#log-pane,#room-pane,#rooms-pane,#loading,#client-pane,#dash-pane{display:none!important;}
+  .ctrl,.topbar,.tabbar,#form-pane,#log-pane,#room-pane,#rooms-pane,#ext-pane,#loading,#client-pane,#dash-pane{display:none!important;}
   .cpage{page-break-after:always!important;break-after:always!important;}
   .ppage,#pp-page{display:block!important;page-break-before:always!important;page-break-inside:avoid!important;overflow:hidden!important;}
   body{background:#fff!important;}
@@ -951,7 +951,7 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
     <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-o" cx="21" cy="21" r="17" stroke="#302e81" style="stroke-dashoffset:106;"/></svg><div class="rlbl" style="color:#302e81;" id="ri-o-l">0%</div></div><div><div class="ktag">Overall</div><div class="kval" id="kv-o" style="color:#302e81;">0%</div><div class="ksub" id="ks-o">0 / 33 FL</div></div></div>
     <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-b" cx="21" cy="21" r="17" stroke="#D97706" style="stroke-dashoffset:106;"/></svg><div class="rlbl" style="color:#D97706;" id="ri-b-l">0/33</div></div><div><div class="ktag">Floors Done</div><div class="kval" id="kv-b" style="color:#D97706;">0 / 33</div><div class="ksub" id="ks-b">Ground–32</div></div></div>
     <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" cx="21" cy="21" r="17" stroke="#16A34A" style="stroke-dashoffset:0;"/></svg><div class="rlbl" style="color:#16A34A;font-size:11px;">✓</div></div><div><div class="ktag">Safety LTI</div><div class="kval" id="kv-s" style="color:#16A34A;">0</div><div class="ksub" id="ks-s">0 MH Accum</div></div></div>
-    <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-p" cx="21" cy="21" r="17" stroke="#ed1b24" style="stroke-dashoffset:95;"/></svg><div class="rlbl" style="color:#ed1b24;font-size:8px;">10%</div></div><div><div class="ktag">Next Payment</div><div class="kval" style="color:#ed1b24;">฿1.95M</div><div class="ksub">@ 40% · Jun 2026</div></div></div>
+    <div class="kpi"><div class="rw"><svg viewBox="0 0 42 42"><circle class="rbg" cx="21" cy="21" r="17"/><circle class="rfill" id="ri-p" cx="21" cy="21" r="17" stroke="#ed1b24" style="stroke-dashoffset:95;"/></svg><div class="rlbl" style="color:#ed1b24;font-size:8px;">40%</div></div><div><div class="ktag">Next Payment</div><div class="kval" style="color:#ed1b24;">฿1.95M</div><div class="ksub">@ 40% · Jun 2026</div></div></div>
   </div>
   <div class="rbody">
     <div class="cL"><div class="sh">All 33 Floors · Ground–32</div><div id="r-bldgs"></div><div class="chips"><div class="chip"><span class="chip-v" id="rc-done" style="color:var(--green);">0</span><div class="chip-l">FL Done</div></div><div class="chip"><span class="chip-v" id="rc-wip" style="color:var(--amber);">0</span><div class="chip-l">FL Active</div></div><div class="chip"><span class="chip-v" id="rc-os" style="color:var(--navy);">0</span><div class="chip-l">On-Site</div></div><div class="chip"><span class="chip-v" id="rc-mha" style="color:var(--navy);">0</span><div class="chip-l">MH Accum</div></div><div class="chip"><span class="chip-v" id="rc-lti" style="color:var(--green);">0</span><div class="chip-l">LTI</div></div></div></div>
@@ -981,19 +981,17 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
       </svg></div>
       <div class="sh">Payment Milestones</div>
       <div class="msrow">
-        <div class="msn"><div class="msdot ok">✓</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด1<br>Sign</div><div style="font-size:8px;font-weight:700;color:#16A34A;text-align:center;">฿650K✅</div></div>
+        <div class="msn"><div class="msdot ok">✓</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด1<br>Advance</div><div style="font-size:8px;font-weight:700;color:#16A34A;text-align:center;">฿1.3M✅</div></div>
         <div class="msseg done"></div>
         <div class="msn"><div class="msdot go">2</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด2<br>40%</div><div style="font-size:8px;font-weight:700;color:#302e81;text-align:center;">฿1.95M🎯</div></div>
         <div class="msseg pend"></div>
-        <div class="msn"><div class="msdot w">3</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด3<br>70%</div><div style="font-size:8px;font-weight:700;text-align:center;">฿1.95M</div></div>
+        <div class="msn"><div class="msdot w">3</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด3<br>75%</div><div style="font-size:8px;font-weight:700;text-align:center;">฿1.95M</div></div>
         <div class="msseg pend"></div>
-        <div class="msn"><div class="msdot w">4</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด4<br>90%</div><div style="font-size:8px;font-weight:700;text-align:center;">฿1.3M</div></div>
-        <div class="msseg pend"></div>
-        <div class="msn"><div class="msdot w">5</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด5<br>100%</div><div style="font-size:8px;font-weight:700;text-align:center;">฿650K</div></div>
+        <div class="msn"><div class="msdot w">4</div><div style="font-size:8px;color:var(--t3);text-align:center;line-height:1.3;">งวด4<br>100%</div><div style="font-size:8px;font-weight:700;text-align:center;">฿1.3M</div></div>
       </div>
       <div class="mssum">
-        <div class="mssi"><div style="font-size:8px;text-transform:uppercase;color:var(--t3);">Received</div><div style="font-size:10px;font-weight:900;color:#16A34A;">฿650,000</div></div>
-        <div class="mssi"><div style="font-size:8px;text-transform:uppercase;color:var(--t3);">Outstanding</div><div style="font-size:10px;font-weight:900;color:#302e81;">฿5,850,000</div></div>
+        <div class="mssi"><div style="font-size:8px;text-transform:uppercase;color:var(--t3);">Received</div><div style="font-size:10px;font-weight:900;color:#16A34A;">฿1,300,000</div></div>
+        <div class="mssi"><div style="font-size:8px;text-transform:uppercase;color:var(--t3);">Outstanding</div><div style="font-size:10px;font-weight:900;color:#302e81;">฿5,200,000</div></div>
         <div class="mssi" style="border-right:none;"><div style="font-size:8px;text-transform:uppercase;color:var(--t3);">Contract</div><div style="font-size:10px;font-weight:900;">฿6,500,000</div></div>
       </div>
     </div>
@@ -1026,7 +1024,7 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
 
 <!-- ROOM PANE -->
 <div class="pane" id="room-pane">
-  <div class="room-band"><div><div style="font-size:14px;font-weight:900;color:#fff;margin-bottom:2px;">Client Rooms — Separate Contract</div><div style="font-size:9px;color:rgba(255,255,255,.6);">Room-by-room tracking · <span id="room-subtitle">tap to update</span></div></div><div style="font-size:9px;color:rgba(255,255,255,.5);">PS-CH-ROOM/FORMA/002/2569</div></div>
+  <div class="room-band"><div><div style="font-size:14px;font-weight:900;color:#fff;margin-bottom:2px;">Interior Scope · INT — Room by Floor (G–32)</div><div style="font-size:9px;color:rgba(255,255,255,.6);">Crack repair · ceiling · flooring · paint · <span id="room-subtitle">tap to update</span></div></div><div style="font-size:9px;color:rgba(255,255,255,.5);">CH1-SBP/FORMA/001/2569</div></div>
   <div class="rstats"><div class="rstat"><div class="rstat-v" id="rm-t">0</div><div class="rstat-l">Rooms</div></div><div class="rstat"><div class="rstat-v" id="rm-ok" style="color:var(--green);">0</div><div class="rstat-l">Complete</div></div><div class="rstat"><div class="rstat-v" id="rm-wip" style="color:var(--amber);">0</div><div class="rstat-l">In Progress</div></div><div class="rstat"><div class="rstat-v" id="rm-def" style="color:var(--red);">0</div><div class="rstat-l">Defect</div></div></div>
   <div id="room-form-area"></div>
   <div class="rgrid" id="rgrid"><div style="color:var(--t3);font-size:var(--fss);padding:12px;">No rooms added yet.</div></div>
@@ -1105,6 +1103,28 @@ textarea{resize:vertical;min-height:42px;line-height:1.4;}
   <div class="rl-filters" id="rl-filters"></div>
   <div class="rl-grid" id="rl-grid"></div>
   <div id="rl-detail" style="display:none;"></div>
+</div>
+
+<!-- EXT (EXTERIOR) SCOPE PANE — Rope Access facade -->
+<div class="pane" id="ext-pane">
+  <div class="room-band">
+    <div>
+      <div style="font-size:14px;font-weight:900;color:#fff;margin-bottom:2px;">Exterior Façade — Rope Access (โรยตัว)</div>
+      <div style="font-size:9px;color:rgba(255,255,255,.65);">Crack repair + repaint · track by Zone × Elevation · <span id="ext-subtitle">tap a cell to advance status</span></div>
+    </div>
+    <div style="font-size:9px;color:rgba(255,255,255,.5);">CH1-SBP · SCOPE EXT</div>
+  </div>
+  <div class="rstats">
+    <div class="rstat"><div class="rstat-v" id="ext-pct" style="color:var(--navy);">0%</div><div class="rstat-l">Façade %</div></div>
+    <div class="rstat"><div class="rstat-v" id="ext-ok"  style="color:var(--green);">0</div><div class="rstat-l">Complete</div></div>
+    <div class="rstat"><div class="rstat-v" id="ext-wip" style="color:var(--amber);">0</div><div class="rstat-l">In Progress</div></div>
+    <div class="rstat"><div class="rstat-v" id="ext-def" style="color:var(--red);">0</div><div class="rstat-l">Defect/Hold</div></div>
+  </div>
+  <div id="ext-grid"><div style="color:var(--t3);font-size:var(--fss);padding:12px;">Loading exterior grid…</div></div>
+  <div id="ext-actions" style="display:flex;gap:8px;margin-top:10px;">
+    <button class="pksv" id="ext-save" style="flex:1;" onclick="saveScopeExt()">💾 Save EXT Progress</button>
+    <button class="expbtn" onclick="exportScopeExtCSV()">⬇ Export EXT CSV</button>
+  </div>
 </div>
 
 </div><!-- end main-app -->
@@ -1360,10 +1380,11 @@ function showApp(profile){
   if(currentRole!=='client'){
     tabbar.innerHTML=`
       <div class="tab on"  onclick="showTab('form')">✏️ Update</div>
+      <div class="tab"     onclick="showTab('ext');loadScopeExt()">🧗 Exterior · EXT</div>
       <div class="tab"     onclick="showTab('rpt')">📄 Report</div>
       <div class="tab"     onclick="showTab('rpt');setTimeout(()=>$('pp-page').scrollIntoView({behavior:'smooth'}),80)">📸 Photos</div>
-      <div class="tab"     onclick="showTab('room')">🏠 Client Rooms</div>
-      <div class="tab"     onclick="showTab('rooms');loadRoomLife()">🏠 ROOMS</div>
+      <div class="tab"     onclick="showTab('room')">🛠 Interior · INT</div>
+      <div class="tab"     onclick="showTab('rooms');loadRoomLife()">🏠 Room Lifecycle</div>
       <div class="tab"     onclick="showTab('log');loadLog()">📋 Record Log</div>
       <div class="tab"     onclick="showTab('dash');loadDashboard()">📊 Dashboard</div>
       <div class="tab"     onclick="showTab('client');loadClientDashboard()">👁️ Client View</div>`;
@@ -3155,6 +3176,128 @@ function exportCSV(){
   const rows=logData.map(e=>[e.report_date,e.day_no,e.weather,e.temp_celsius,e.overall_pct,e.floors_complete||0,e.floors_active||0,e.mh_cumulative||0,e.lti_count||0,e.created_at]);
   dl([hdr,...rows].map(r=>r.join(',')).join('\n'),`CH1-SBP_Progress-Ledger_${new Date().toISOString().slice(0,10)}.csv`);
   toastOK(`✅ ส่งออก CSV สำเร็จ — ${logData.length} รายการ`);
+}
+
+/* ═══════════════════════════════════════════════════
+   EXT SCOPE — Exterior façade (Rope Access), Zone × Elevation
+   Backed by public.scope_ext (see db/schema.sql + db/scope_ext_seed.sql)
+═══════════════════════════════════════════════════ */
+let scopeExt=[];                         // rows from scope_ext
+const scopeExtChanged=new Set();         // ids edited since last save
+const EXT_CYCLE=['pending','inprogress','complete','defect'];
+const EXT_PCT={pending:0,inprogress:50,complete:100};   // defect keeps its pct
+const ZONE_ORDER={North:0,East:1,South:2,West:3};
+function extColor(s){return s==='complete'?'var(--green)':s==='inprogress'?'var(--amber)':s==='defect'?'var(--red)':'var(--t3)';}
+function extLbl(s){return{pending:'⏳ Pending',inprogress:'🔄 In Progress',complete:'✅ Complete',defect:'⚠️ Defect/Hold'}[s]||s;}
+function elevRank(e){const m=String(e).match(/\d+/);return String(e).toUpperCase().startsWith('G')?0:(m?+m[0]:999);}
+
+async function loadScopeExt(){
+  const grid=$('ext-grid');
+  if(grid)grid.innerHTML='<div style="color:var(--t3);font-size:var(--fss);padding:12px;">Loading exterior grid…</div>';
+  if(!PROJECT_ID){return;}
+  try{
+    const{data,error}=await sb.from('scope_ext')
+      .select('*').eq('project_id',PROJECT_ID);
+    if(error) throw error;
+    scopeExt=(data||[]).slice().sort((a,b)=>
+      (ZONE_ORDER[a.zone]??9)-(ZONE_ORDER[b.zone]??9) || elevRank(a.elevation)-elevRank(b.elevation));
+    scopeExtChanged.clear();
+    if(!scopeExt.length){
+      renderState('ext-grid',{kind:'empty',icon:'🧗',msg:'ยังไม่มีข้อมูล Façade',sub:'รัน db/scope_ext_seed.sql ใน Supabase เพื่อสร้างตาราง Zone × Elevation'});
+      ['ext-pct','ext-ok','ext-wip','ext-def'].forEach(id=>setText(id,id==='ext-pct'?'0%':'0'));
+      return;
+    }
+    renderScopeExt();
+  }catch(err){
+    console.error('loadScopeExt failed:',err);
+    renderState('ext-grid',{kind:'error',msg:'โหลดข้อมูล Façade ไม่สำเร็จ',sub:thaiErr(err),retryFn:loadScopeExt});
+    toastErr('❌ '+thaiErr(err));
+  }
+}
+
+function renderScopeExt(){
+  // stats
+  const n=scopeExt.length||1;
+  const pct=scopeExt.reduce((s,r)=>s+(+r.pct||0),0)/n;
+  setText('ext-pct',pct.toFixed(1)+'%');
+  setText('ext-ok', scopeExt.filter(r=>r.status==='complete').length);
+  setText('ext-wip',scopeExt.filter(r=>r.status==='inprogress').length);
+  setText('ext-def',scopeExt.filter(r=>r.status==='defect').length);
+  setText('ext-subtitle',`${scopeExt.length} cells · ${pct.toFixed(0)}% repainted`+(scopeExtChanged.size?` · ${scopeExtChanged.size} unsaved`:''));
+
+  // group by zone
+  const zones=[...new Set(scopeExt.map(r=>r.zone))]
+    .sort((a,b)=>(ZONE_ORDER[a]??9)-(ZONE_ORDER[b]??9));
+  const ro=currentRole==='client';
+  $('ext-grid').innerHTML=zones.map(z=>{
+    const cells=scopeExt.filter(r=>r.zone===z).sort((a,b)=>elevRank(a.elevation)-elevRank(b.elevation));
+    const zp=cells.reduce((s,r)=>s+(+r.pct||0),0)/(cells.length||1);
+    const cellsHtml=cells.map(r=>{
+      const col=extColor(r.status);
+      const tap=ro?'':`onclick="cycleExtCell('${r.id}')" style="cursor:pointer;"`;
+      return `<div class="fc" ${tap} style="padding:9px 10px;margin:0;border-left:3px solid ${col};">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <div style="font-size:var(--fss);font-weight:800;">FL ${r.elevation}</div>
+          <div style="font-size:14px;font-weight:900;color:${col};">${(+r.pct||0)}%</div>
+        </div>
+        <div style="font-size:9px;color:${col};font-weight:700;margin-top:2px;">${extLbl(r.status)}</div>
+      </div>`;
+    }).join('');
+    return `<div style="margin-bottom:12px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <div style="font-size:var(--fss);font-weight:900;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);">${z} Façade</div>
+        <div style="font-size:11px;font-weight:900;color:var(--navy);">${zp.toFixed(0)}%</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:7px;">${cellsHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+function cycleExtCell(id){
+  if(currentRole==='client') return;
+  const r=scopeExt.find(x=>String(x.id)===String(id));
+  if(!r) return;
+  const next=EXT_CYCLE[(EXT_CYCLE.indexOf(r.status)+1)%EXT_CYCLE.length];
+  r.status=next;
+  if(next in EXT_PCT) r.pct=EXT_PCT[next];   // defect leaves pct unchanged
+  scopeExtChanged.add(String(id));
+  renderScopeExt();
+}
+
+async function saveScopeExt(){
+  if(currentRole==='client') return;
+  if(!scopeExtChanged.size){toast('ℹ️ ไม่มีการเปลี่ยนแปลงที่ต้องบันทึก');return;}
+  const btn=$('ext-save'); if(btn){btn.disabled=true;btn.textContent='Saving…';}
+  try{
+    const stamp=new Date().toISOString();
+    const rows=scopeExt.filter(r=>scopeExtChanged.has(String(r.id))).map(r=>({
+      id:r.id,project_id:PROJECT_ID,zone:r.zone,elevation:r.elevation,
+      status:r.status,pct:+r.pct||0,method:r.method||'rope-access',
+      updated_by:currentUser.id,updated_at:stamp
+    }));
+    const{error}=await sb.from('scope_ext').upsert(rows,{onConflict:'project_id,zone,elevation'});
+    if(error) throw error;
+    await sb.from('audit_logs').insert({
+      user_id:currentUser.id,action:'update',table_name:'scope_ext',record_id:null,
+      summary:`EXT façade: ${rows.length} cell(s) updated`
+    });
+    scopeExtChanged.clear();
+    renderScopeExt();
+    toastOK(`✅ บันทึก Façade สำเร็จ — ${rows.length} ช่อง`);
+  }catch(err){
+    console.error('saveScopeExt failed:',err);
+    toastErr('❌ '+thaiErr(err));
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='💾 Save EXT Progress';}
+  }
+}
+
+function exportScopeExtCSV(){
+  if(!scopeExt.length){toastErr('⚠️ ยังไม่มีข้อมูล Façade');return;}
+  const hdr=['Zone','Elevation','Status','Pct','Method'];
+  const rows=scopeExt.map(r=>[r.zone,r.elevation,r.status,(+r.pct||0),r.method||'rope-access']);
+  dl([hdr,...rows].map(r=>r.join(',')).join('\n'),`CH1-SBP_Exterior-Facade_${new Date().toISOString().slice(0,10)}.csv`);
+  toastOK(`✅ ส่งออก EXT CSV สำเร็จ — ${scopeExt.length} ช่อง`);
 }
 
 /* ═══════════════════════════════════════════════════
