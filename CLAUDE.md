@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Chapter One Modern Dutch — Daily Progress Report system for Forma Corporations. Tracks construction progress across 3 buildings (77 in-scope floors), manpower/safety, site photos, and client rooms for contract PS-CH-RBN:P/FORMA/001/2569 (total value 6,500,000 THB).
+Chapter One Shine Bang Pho (CH1-SBP) — Daily Progress Report system for Forma Corporations. Single structure, 33 in-scope floors (Ground + Floor 1–32). Two work scopes: **EXT** (exterior façade — crack repair + repaint, by rope access, tracked Zone × Elevation) and **INT** (interior — crack/ceiling/flooring/paint, tracked room-by-room per floor). Tracks progress, manpower/safety, site photos, rooms. Contract CH1-SBP/FORMA/001/2569 (total value 6,500,000 THB). Adapted from the Chapter One Modern Dutch base.
+
+⚠️ The Supabase **anon key is a PLACEHOLDER** (`index.html` SUPABASE_ANON = 'PLACEHOLDER_ANON_KEY'). The app cannot connect until the real anon/public key from the `wvihzrdokwpjeneycppv` project is filled into both `index.html` and `.env.local`.
 
 ## Architecture
 
@@ -19,17 +21,20 @@ External dependencies load from CDN:
 Project URL and anon key are hardcoded at the top of the `<script>` block. Data model:
 
 - `profiles` — user role (`admin` | `internal` | `client`)
-- `projects` — looked up by `code='CHAPTER-ONE-2026'` to get `PROJECT_ID`
+- `projects` — looked up by `code='CH1-SBP-2026'` to get `PROJECT_ID`
 - `daily_reports` — one row per `(project_id, report_date)`; upserted on save
 - `floor_progress` — child rows keyed on `(report_id, building, floor_no)`; one batch upsert per save
-- `photos` — metadata rows; files live in Storage bucket `chapter-one-photos`
-- `payment_milestones` — 5 contract milestones; seeded by `db/payment_milestones.sql`
-- `rooms` — separate contract (room-by-room tracking)
+- `photos` — metadata rows; files live in Storage bucket `ch1-sbp-photos`
+- `payment_milestones` — 4 contract installments; seeded by `db/payment_milestones.sql` (amounts are a placeholder split summing to 6.5M — confirm vs signed schedule)
+- `rooms` — INT scope (room-by-room tracking, room lifecycle + cert/warranty)
+- `scope_ext` — EXT scope (façade grid: zone × elevation); seeded by `db/scope_ext_seed.sql`
 - `audit_logs` — written on every report save
 
-SQL files in `db/` are idempotent (table uses `IF NOT EXISTS`, seeds `ON CONFLICT DO NOTHING`, every policy `DROP`ped first) — run them in Supabase Dashboard → SQL Editor:
-- `db/rls_photos.sql` — RLS for `photos` table + `storage.objects` (bucket `chapter-one-photos`)
-- `db/payment_milestones.sql` — table, 5-milestone seed, RLS
+The new Supabase project is **empty** — run `db/schema.sql` FIRST (creates all core tables + `scope_ext`, seeds the `projects` row `code='CH1-SBP-2026'`, applies RLS), then the seed/RLS files below. SQL files in `db/` are idempotent (table uses `IF NOT EXISTS`, seeds `ON CONFLICT DO NOTHING`, every policy `DROP`ped first) — run them in Supabase Dashboard → SQL Editor:
+- `db/schema.sql` — full core schema + `scope_ext` + projects seed + RLS (run first)
+- `db/rls_photos.sql` — RLS for `photos` table + `storage.objects` (bucket `ch1-sbp-photos`, also created here)
+- `db/payment_milestones.sql` — table, 4-installment seed, RLS
+- `db/scope_ext_seed.sql` — façade zone × elevation grid seed (16 cells)
 
 RLS pattern across all tables: client = read-only (SELECT for `authenticated`); admin/internal = full read/write (INSERT/UPDATE/DELETE gated by a `profiles.role IN ('admin','internal')` exists-clause).
 
@@ -54,11 +59,14 @@ Six cards rendered from one batched fetch of `daily_reports`, `floor_progress`, 
 ### Building/floor constants (load-bearing)
 
 ```js
-BLDG = { A:{floors:23, 5–27}, B:{floors:27, 5–31}, C:{floors:27, 5–31} }
-TF = 77  // total in-scope floors
+BLDG = { M:{floors:33, startFloor:0, endFloor:32, color:'a', label:'Chapter One Shine Bang Pho'} }
+TF = 33  // total in-scope floors
+flLabel(n)  // 0 → "G" (Ground), else the number
 ```
 
-FL 1–4 are car parking, excluded from scope (confirmed 2026-04-15). Don't add them.
+Single structure. `floor_no` 0 = Ground (displayed "G"), 1–32 = upper floors. `floor_progress.building` is always `'M'`. The legacy A/B/C 3-building model is gone; `daily_reports.bldg_a_pct` now holds the single-building %, `bldg_b/c_pct` are written 0.
+
+EXT scope grid: facade zones North/East/South/West × elevation bands `G-8 / 9-16 / 17-24 / 25-32` (see `db/scope_ext_seed.sql`). The EXT tab cycles a cell pending→inprogress→complete→defect on tap, then `saveScopeExt()` upserts changed cells.
 
 ### Data flow quirks to know
 
