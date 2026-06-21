@@ -1,0 +1,8 @@
+# Local manual backups of index.html
+index.html.bak.*
+
+# Claude Code local settings
+.claude/
+
+# OS / editor cruft
+.DS_Store
