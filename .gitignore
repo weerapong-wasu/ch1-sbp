@@ -4,5 +4,8 @@ index.html.bak.*
 # Claude Code local settings
 .claude/
 
+# Local env (Supabase config of record; live values are inlined in index.html)
+.env.local
+
 # OS / editor cruft
 .DS_Store
