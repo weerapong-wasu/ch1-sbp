@@ -1,6 +1,6 @@
 -- ════════════════════════════════════════════════════════════════════
--- Chapter One Progress — EVM Baseline (table + seed R3 + RLS)
--- Run in: Supabase Dashboard → SQL Editor
+-- Chapter One Shine Bang Pho — EVM Baseline (table + seed R3 + RLS)
+-- Run in: Supabase Dashboard → SQL Editor (after db/schema.sql)
 -- Effect:  creates public.evm_baseline (immutable revisions of the
 --          earned-value baseline), seeds the initial R3 row from the
 --          existing Master Schedule, applies RLS (client = read,
@@ -28,7 +28,7 @@ create index if not exists idx_evm_baseline_project_locked
   on public.evm_baseline (project_id, locked_at desc);
 
 -- ─── seed: Chapter One R3 baseline ──────────────────────────────────
--- Source: Master Schedule R3 + Contract PS-CH-RBN:P/FORMA/001/2569
+-- Source: Master Schedule R3 + Contract CH1-SBP/FORMA/001/2569
 -- Total contract value: 6,500,000.00 THB · 180 working days
 insert into public.evm_baseline
   (project_id, revision, plan_day_array, plan_pct_array, bac_thb, note, locked_at)
@@ -40,7 +40,7 @@ select p.id,
        'Initial baseline imported from Master Schedule R3.',
        now()
 from public.projects p
-where p.code = 'CHAPTER-ONE-2026'
+where p.code = 'CH1-SBP-2026'
 on conflict (project_id, revision) do nothing;
 
 -- ─── audit trigger: write each new baseline to audit_logs ───────────

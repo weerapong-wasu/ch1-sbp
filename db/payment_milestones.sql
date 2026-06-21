@@ -1,8 +1,8 @@
 -- ════════════════════════════════════════════════════════════════════
--- Chapter One Progress — Payment Milestones (table + seed + RLS)
--- Run in: Supabase Dashboard → SQL Editor
--- Effect:  creates public.payment_milestones, seeds 5 Chapter One
---          milestones, applies RLS (client = read-only,
+-- Chapter One Shine Bang Pho — Payment Milestones (table + seed + RLS)
+-- Run in: Supabase Dashboard → SQL Editor (after db/schema.sql)
+-- Effect:  creates public.payment_milestones, seeds 4 CH1-SBP
+--          installments, applies RLS (client = read-only,
 --          admin / internal = full read/write).
 -- Safe to re-run: table uses IF NOT EXISTS, seed uses ON CONFLICT,
 --                 every policy is dropped first.
@@ -26,21 +26,23 @@ create table if not exists public.payment_milestones (
 create index if not exists idx_payment_milestones_project
   on public.payment_milestones (project_id, milestone_no);
 
--- ─── seed: Chapter One 5 milestones ─────────────────────────────────
--- Source: contract PS-CH-RBN:P/FORMA/001/2569
+-- ─── seed: CH1-SBP 4 installments ───────────────────────────────────
+-- Source: contract CH1-SBP/FORMA/001/2569
 -- Total contract value: 6,500,000.00 THB
+-- ⚠️ Thresholds/amounts below are a sensible default that sums to the
+--    contract value — CONFIRM against the signed payment schedule and
+--    adjust the VALUES rows if the contract differs.
 insert into public.payment_milestones
   (project_id, milestone_no, milestone_name, threshold_pct, amount, status)
 select p.id, v.milestone_no, v.milestone_name, v.threshold_pct, v.amount, 'pending'
 from public.projects p
 cross join (values
-  (1, 'ลงนามสัญญา + งานเสร็จ 10%',  10.00,   650000.00),
+  (1, 'ลงนามสัญญา / เงินล่วงหน้า',   0.00,  1300000.00),
   (2, 'ดำเนินงานเสร็จ 40%',          40.00,  1950000.00),
-  (3, 'ดำเนินงานเสร็จ 70%',          70.00,  1950000.00),
-  (4, 'ดำเนินงานเสร็จ 90%',          90.00,  1300000.00),
-  (5, 'เสร็จ 100% + ส่งมอบ',        100.00,   650000.00)
+  (3, 'ดำเนินงานเสร็จ 75%',          75.00,  1950000.00),
+  (4, 'เสร็จ 100% + ส่งมอบ',        100.00,  1300000.00)
 ) as v(milestone_no, milestone_name, threshold_pct, amount)
-where p.code = 'CHAPTER-ONE-2026'
+where p.code = 'CH1-SBP-2026'
 on conflict (project_id, milestone_no) do nothing;
 
 -- ─── RLS ────────────────────────────────────────────────────────────

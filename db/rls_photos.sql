@@ -1,9 +1,14 @@
 -- ════════════════════════════════════════════════════════════════════
--- Chapter One Progress — Photos RLS policies
--- Run in: Supabase Dashboard → SQL Editor
+-- Chapter One Shine Bang Pho — Photos RLS policies + storage bucket
+-- Run in: Supabase Dashboard → SQL Editor (after db/schema.sql)
 -- Effect:  client = read-only.   admin / internal = full read/write.
 -- Safe to re-run: every policy is dropped first.
 -- ════════════════════════════════════════════════════════════════════
+
+-- ─── storage bucket: ch1-sbp-photos (public read for getPublicUrl) ──
+insert into storage.buckets (id, name, public)
+values ('ch1-sbp-photos', 'ch1-sbp-photos', true)
+on conflict (id) do nothing;
 
 -- ─── photos table ───────────────────────────────────────────────────
 alter table public.photos enable row level security;
@@ -51,10 +56,10 @@ create policy "photos_delete_internal"
     )
   );
 
--- ─── storage.objects (bucket: chapter-one-photos) ───────────────────
+-- ─── storage.objects (bucket: ch1-sbp-photos) ───────────────────
 -- Note: storage policies must be created with sufficient privilege.
 -- If running as non-superuser fails, use the Storage UI:
---   Storage → chapter-one-photos → Policies → New policy.
+--   Storage → ch1-sbp-photos → Policies → New policy.
 
 drop policy if exists "ph_obj_read"   on storage.objects;
 drop policy if exists "ph_obj_write"  on storage.objects;
@@ -64,13 +69,13 @@ drop policy if exists "ph_obj_delete" on storage.objects;
 create policy "ph_obj_read"
   on storage.objects for select
   to authenticated
-  using (bucket_id = 'chapter-one-photos');
+  using (bucket_id = 'ch1-sbp-photos');
 
 create policy "ph_obj_write"
   on storage.objects for insert
   to authenticated
   with check (
-    bucket_id = 'chapter-one-photos'
+    bucket_id = 'ch1-sbp-photos'
     and exists (
       select 1 from public.profiles p
       where p.id = auth.uid()
@@ -82,7 +87,7 @@ create policy "ph_obj_update"
   on storage.objects for update
   to authenticated
   using (
-    bucket_id = 'chapter-one-photos'
+    bucket_id = 'ch1-sbp-photos'
     and exists (
       select 1 from public.profiles p
       where p.id = auth.uid()
@@ -94,7 +99,7 @@ create policy "ph_obj_delete"
   on storage.objects for delete
   to authenticated
   using (
-    bucket_id = 'chapter-one-photos'
+    bucket_id = 'ch1-sbp-photos'
     and exists (
       select 1 from public.profiles p
       where p.id = auth.uid()

@@ -2841,10 +2841,10 @@ function openRoomLife(id){
 async function generateCertificate(id){
   const r=roomLife.find(x=>x.id===id);if(!r)return;
   if(!rlCanCertify(r)){toastErr('⚠️ ห้องนี้ยังออกใบรับรองไม่ได้');return;}
-  // Ref: FC-CERT-CHR-{room_no_digits}-{YYYYMMDD}-R1  (e.g. 69/874 → FC-CERT-CHR-69874-20260613-R1)
+  // Ref: FC-CERT-SBP-{room_no_digits}-{YYYYMMDD}-R1  (e.g. 69/874 → FC-CERT-SBP-69874-20260613-R1)
   const digits=String(r.room_no||'').replace(/\D/g,'')||'NA';
   const start=rlLocalDate();                                 // warranty start = today
-  const ref=`FC-CERT-CHR-${digits}-${start.replace(/-/g,'')}-R1`;
+  const ref=`FC-CERT-SBP-${digits}-${start.replace(/-/g,'')}-R1`;
   const ed=new Date(start+'T00:00:00'); ed.setFullYear(ed.getFullYear()+1);
   const expiry=rlFmtISO(ed);                                 // warranty expiry = +1 year
   const issuedAt=new Date().toISOString();
